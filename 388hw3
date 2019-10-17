@@ -1,0 +1,31 @@
+# Problem 1
+1a. With this protocol, the university won't have to manage authentication separately for each campus site which will limit the number of potential security issues.
+
+1b. If the central sign-on is compromised, all campus sites will also be compromised.
+
+1c. The username and signature are sent to site A when the sign-on site redirects, and these two parameters are all the attacker needs to impersonate the user on any other campus site.
+
+1d. The sign-on site should check the url before redirecting to confirm that the site is actually a campus site.
+
+# Problem 2
+2a. Simply attempt the login in to some user's account some number of times so that they won't know which attempt they are on which means that they won't know which code to use.
+
+2b. An attacker could steal a user's phone or try random codes until they are successful.
+
+2c. An attacker could send a fake login email that takes the user to a site that they control and ask the user to input their information. 
+This method of authentication teaches users to click links in emails. Since users are typically impatient they will likely click any link without checking to make sure that it is legitimate.
+
+2d. Using a physical key may be inconvenient for users, and losing a key could prevent a user from accessing their account for a period of time. 
+
+2e. SDSC will be in possession of a large amount of biometric data, which users may not want to be obtained by anyone else. I think that the risk of this data being stolen is too great to use this method of authentication.
+
+# Problem 3
+3a. If SDSC can send a plaintext password in an email, the passwords must be stored in plaintext. This is a problem because if an attacker breaks in to the server they may be able to find a list of plaintext passwords.
+
+3b. A rainbow table consists of a set of precomputed chains of passwords and their hashes. A plaintext password is hashed with a hash function h and the resulting hash is mapped back to a different plaintext password using a reduction function, which is then hashed and so on. To reverse a given hash, use it compute a chain and see if any resulting hash value appears in the table. 
+source:
+en.wikipedia.org/wiki/Rainbow_table
+
+3c. If two different users have the same password, this method will still produce identical hashes. Attackers may be able to exploit this fact. To fix this, instead of appending "SDSC" to each password, append a different random string for each user. This way even if two users have identical passwords, their hashes will be different.
+
+3d. No, this fix does not protect against guessing passwords.
